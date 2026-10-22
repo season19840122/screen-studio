@@ -150,14 +150,22 @@ final class RecordingCompletionWindowController {
         entranceID = nil
         entranceSurface?.layer?.removeAllAnimations()
         panel?.onCloseRequest = nil
-        panel?.orderOut(nil)
-        panel?.contentView = nil
         contentHost = nil
         entranceSurface = nil
-        panel?.close()
-        panel = nil
         sessionID = nil
         model = nil
+        guard let window = panel else { return }
+        panel = nil
+        // Restart and discard run this from inside a SwiftUI button update. Tearing
+        // the window down in that pass detaches the hosting views while AppKit still
+        // has a constraint update pending for them, and macOS 26 turns the resulting
+        // _postWindowNeedsUpdateConstraints mismatch into a fatal exception. Retire
+        // the window on the next run loop turn, once the update has settled.
+        DispatchQueue.main.async {
+            window.orderOut(nil)
+            window.contentView = nil
+            window.close()
+        }
     }
 
     private func resizeToFit(visible: NSRect, anchorsToCorner: Bool = false) {
