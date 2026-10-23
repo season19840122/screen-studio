@@ -110,7 +110,7 @@ final class FirstLaunchIntroduction {
 
         let brand = IntroductionPanel(contentRect: screenFrame, styleMask: [.borderless], backing: .buffered, defer: false)
         Self.configure(brand, level: stageLevel + 1)
-        brand.setAccessibilityLabel(appLocalized("DogSC 启动动画，按 Esc 跳过"))
+        brand.setAccessibilityLabel(appLocalized("Screen Studio 启动动画，按 Esc 跳过"))
         brand.onSkip = { [weak self] in self?.finish(activateDestination: true) }
         let root = CALayer()
         root.frame = bounds
@@ -210,7 +210,7 @@ final class FirstLaunchIntroduction {
         pulse.opacity = 0
         root.addSublayer(pulse)
 
-        let word = Self.wordmark("DogSC", size: wordSize, backing: backing)
+        let word = Self.wordmark("Screen Studio", size: wordSize, backing: backing)
         word.container.position = CGPoint(x: centre.x, y: centre.y - 62 * scale)
         root.addSublayer(word.container)
 

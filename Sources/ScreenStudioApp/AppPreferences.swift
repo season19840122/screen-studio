@@ -554,7 +554,7 @@ enum AppPreferences {
             in: .userDomainMask
         ).first ?? FileManager.default.temporaryDirectory
         return movies
-            .appendingPathComponent("DogSC", isDirectory: true)
+            .appendingPathComponent("Screen Studio", isDirectory: true)
             .appendingPathComponent("导出", isDirectory: true)
     }
 

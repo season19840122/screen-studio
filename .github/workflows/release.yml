@@ -70,15 +70,15 @@ jobs:
         run: |
           set -euo pipefail
 
-          swift build -c release --product DogSC
+          swift build -c release --product ScreenStudio
           binary_dir="$(swift build -c release --show-bin-path)"
 
-          app="$RUNNER_TEMP/DogSC.app"
+          app="$RUNNER_TEMP/Screen Studio.app"
           mkdir -p \
             "$app/Contents/MacOS" \
             "$app/Contents/Frameworks" \
             "$app/Contents/Resources"
-          cp "$binary_dir/DogSC" "$app/Contents/MacOS/DogSC"
+          cp "$binary_dir/ScreenStudio" "$app/Contents/MacOS/ScreenStudio"
           cp Resources/Info.plist "$app/Contents/Info.plist"
           cp Resources/AppIcon.icns "$app/Contents/Resources/AppIcon.icns"
           for resource in en.lproj zh-Hans.lproj Fonts Onboarding Support; do
@@ -102,7 +102,7 @@ jobs:
           codesign "${sign[@]}" "$framework_b/Autoupdate"
           codesign "${sign[@]}" "$framework_b/Updater.app"
           codesign "${sign[@]}" "$app/Contents/Frameworks/Sparkle.framework"
-          codesign "${sign[@]}" --entitlements Resources/DogSC.entitlements "$app"
+          codesign "${sign[@]}" --entitlements Resources/ScreenStudio.entitlements "$app"
           codesign --verify --deep --strict "$app"
 
           echo "签名身份：$SIGNING_IDENTITY"
@@ -115,12 +115,12 @@ jobs:
 
           staging="$RUNNER_TEMP/dmg-staging"
           mkdir -p "$staging"
-          ditto "$RUNNER_TEMP/DogSC.app" "$staging/DogSC.app"
+          ditto "$RUNNER_TEMP/Screen Studio.app" "$staging/Screen Studio.app"
           ln -s /Applications "$staging/Applications"
 
-          image="$RUNNER_TEMP/DogSC-v${{ steps.meta.outputs.short }}-macOS.dmg"
+          image="$RUNNER_TEMP/ScreenStudio-v${{ steps.meta.outputs.short }}-macOS.dmg"
           hdiutil create \
-            -volname "DogSC" \
+            -volname "Screen Studio" \
             -srcfolder "$staging" \
             -ov -format UDZO \
             "$image" >/dev/null
@@ -133,7 +133,7 @@ jobs:
         if: github.ref_type != 'tag'
         uses: actions/upload-artifact@v4
         with:
-          name: DogSC-dmg
+          name: ScreenStudio-dmg
           path: ${{ steps.dmg.outputs.path }}
           retention-days: 14
 
@@ -148,7 +148,7 @@ jobs:
           notes=".github/release-notes/${GITHUB_REF_NAME}.md"
           args=(
             release create "$GITHUB_REF_NAME" "$DMG"
-            --title "DogSC $GITHUB_REF_NAME"
+            --title "Screen Studio $GITHUB_REF_NAME"
             --verify-tag
           )
           if [[ -s "$notes" ]]; then

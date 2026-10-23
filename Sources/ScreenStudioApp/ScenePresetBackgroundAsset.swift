@@ -9,7 +9,7 @@ struct ScenePresetBackgroundAsset: Codable, Equatable, Sendable {
 
     static var directory: URL {
         FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("DogSC/ScenePresets/Assets", isDirectory: true)
+            .appendingPathComponent("Screen Studio/ScenePresets/Assets", isDirectory: true)
     }
 
     var url: URL? {

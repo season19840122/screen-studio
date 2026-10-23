@@ -74,7 +74,7 @@ struct AppAboutSettingsView: View {
                 .buttonStyle(SettingsPillButtonStyle(compact: true))
                 .disabled(!updateController.isFormalRelease || !updateController.isReady)
                 .help(appLocalized(updateController.availabilityDescription))
-                .accessibilityHint(appLocalized("从 GitHub Release 检查并安装 DogSC 新版本"))
+                .accessibilityHint(appLocalized("从 GitHub Release 检查并安装 Screen Studio 新版本"))
 
                 SettingsToggle(
                     isOn: Binding(

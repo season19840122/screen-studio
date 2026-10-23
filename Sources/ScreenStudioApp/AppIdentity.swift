@@ -10,6 +10,6 @@ enum AppIdentity {
             forInfoDictionaryKey: "CFBundleDisplayName"
         ) as? String
         let trimmed = configured?.trimmingCharacters(in: .whitespacesAndNewlines)
-        return trimmed.flatMap { $0.isEmpty ? nil : $0 } ?? "DogSC"
+        return trimmed.flatMap { $0.isEmpty ? nil : $0 } ?? "Screen Studio"
     }
 }

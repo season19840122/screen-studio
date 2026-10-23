@@ -579,7 +579,7 @@ enum ProjectStore {
     }
 
     /// User-configurable destination for saved projects. When unset, the
-    /// default is 影片/DogSC/项目.
+    /// default is 影片/Screen Studio/项目.
     static let projectsFolderDefaultsKey = "cn.laogou.dogsc.projects-folder"
 
     static var savedProjectsFolder: URL {
@@ -591,7 +591,7 @@ enum ProjectStore {
         let movies = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask).first
             ?? FileManager.default.temporaryDirectory
         return movies
-            .appendingPathComponent("DogSC", isDirectory: true)
+            .appendingPathComponent("Screen Studio", isDirectory: true)
             .appendingPathComponent("项目", isDirectory: true)
     }
 
@@ -1110,7 +1110,7 @@ enum ProjectStore {
                 recoveredFromPreviousRevision: false
             )
         } catch let schemaError as ProjectSchemaError {
-            // A project written by a newer DogSC is not corruption. Falling
+            // A project written by a newer Screen Studio is not corruption. Falling
             // back to an older snapshot would let the current app later
             // overwrite unknown future fields, exactly what the schema guard
             // exists to prevent.
@@ -1218,7 +1218,7 @@ enum ProjectStore {
         let validProjects = recentProjectURLs(limit: limit)
         let controller = NSDocumentController.shared
         // `NSDocumentController` may expose fewer Dock recent-document slots
-        // than DogSC keeps in its own project history (five on current macOS).
+        // than Screen Studio keeps in its own project history (five on current macOS).
         // Compare and publish only that visible prefix; otherwise the capped
         // result is mistaken for a failed rebuild and the fallback republishes
         // the list in the opposite order, leaving the oldest projects visible.
@@ -1379,7 +1379,7 @@ enum ProjectStore {
             in: .userDomainMask
         ).first ?? FileManager.default.temporaryDirectory
         return applicationSupport
-            .appendingPathComponent("DogSC", isDirectory: true)
+            .appendingPathComponent("Screen Studio", isDirectory: true)
             .appendingPathComponent("未保存项目", isDirectory: true)
     }
 
