@@ -8,8 +8,8 @@ enum FirstUseTourKind: String, CaseIterable {
         switch self {
         case .permissions:
             [
-                .init("permission.screen", "先允许录制屏幕", "打开系统设置，允许 DogSC 录制屏幕。返回后会自动检查。", "display"),
-                .init("permission.pointer", "让鼠标动作被记录", "辅助功能用于记录鼠标移动与点击。设置列表里没有 DogSC 时，把下方悬浮条中的图标拖进去，再打开开关。", "cursorarrow"),
+                .init("permission.screen", "先允许录制屏幕", "打开系统设置，允许 Screen Studio 录制屏幕。返回后会自动检查。", "display"),
+                .init("permission.pointer", "让鼠标动作被记录", "辅助功能用于记录鼠标移动与点击。设置列表里没有 Screen Studio 时，把下方悬浮条中的图标拖进去，再打开开关。", "cursorarrow"),
                 .init("permission.finish", "授权已完成", "屏幕录制与辅助功能已就绪。进入后即可选择录制范围；摄像头和麦克风仍在启用时授权。", "checkmark.circle")
             ]
         case .recorder:
@@ -500,7 +500,7 @@ final class FirstUseTourController {
         switch flow.primaryAction {
         case .openSettings: return appLocalized("打开设置")
         case .advance: return appLocalized("下一步")
-        case .enter: return flow.isReview ? appLocalized("完成") : appLocalized("进入 DogSC")
+        case .enter: return flow.isReview ? appLocalized("完成") : appLocalized("进入 Screen Studio")
         }
     }
 

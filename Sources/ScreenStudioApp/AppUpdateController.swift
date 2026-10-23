@@ -6,7 +6,7 @@ import Sparkle
 ///
 /// Local development deliberately uses a different bundle identifier. It may
 /// render the update controls for visual review, but it must never replace
-/// `DogSC Dev.app` with a formal `DogSC.app` release.
+/// `Screen Studio Dev.app` with a formal `Screen Studio.app` release.
 @MainActor
 final class AppUpdateController: ObservableObject {
     static let shared = AppUpdateController()
@@ -41,7 +41,7 @@ final class AppUpdateController: ObservableObject {
                 ? "每天自动检查 GitHub Release；发现新版后可直接下载、替换并重新打开。"
                 : "自动检查已关闭；仍可随时手动检查并直接安装新版。"
         }
-        return "开发版不会替换正式版；发布后的 DogSC 才会连接 GitHub 更新源。"
+        return "开发版不会替换正式版；发布后的 Screen Studio 才会连接 GitHub 更新源。"
     }
 
     func startIfEligible() {

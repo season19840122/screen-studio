@@ -119,7 +119,7 @@ struct SettingsGeneralPage: View {
         .accessibilityLabel(appLocalized("界面语言"))
         .accessibilityValue(languageSettings.selection.label)
         .accessibilityIdentifier("settings.interface-language")
-        .help(appLocalized("切换后立即生效，无需重新打开 DogSC"))
+        .help(appLocalized("切换后立即生效，无需重新打开 Screen Studio"))
     }
 }
 

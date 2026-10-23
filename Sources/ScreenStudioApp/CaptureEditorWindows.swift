@@ -8,7 +8,7 @@ let recorderEditorWindowIdentifier = NSUserInterfaceItemIdentifier(
     "cn.laogou.dogsc.editor-window"
 )
 
-/// Only the editor's owner may opt a DogSC window into screen capture. Keeping
+/// Only the editor's owner may opt a Screen Studio window into screen capture. Keeping
 /// the rest of the process excluded also covers helper windows opened mid-take.
 @MainActor
 final class CaptureEditorWindows {

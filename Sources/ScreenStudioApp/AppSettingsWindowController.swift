@@ -1,7 +1,7 @@
 import AppKit
 import SwiftUI
 
-/// Presents one reusable native settings window regardless of which DogSC
+/// Presents one reusable native settings window regardless of which Screen Studio
 /// surface is active. The app does not own a SwiftUI WindowGroup, so relying on
 /// the Settings scene's responder-chain action leaves the standard menu item
 /// disabled while the editor's AppKit window is key.

@@ -10,7 +10,7 @@ public enum ElementMotionCurve: String, CaseIterable, Codable, Identifiable, Sen
     /// Slow at both ends. Best for restrained presentation graphics.
     case smooth
     /// Starts decisively and settles gently. This preserves the historical
-    /// DogSC sticker/opening rhythm and remains the compatibility default.
+    /// Screen Studio sticker/opening rhythm and remains the compatibility default.
     case swift
     /// A softer ease-out with less initial acceleration than ``swift``.
     case gentle

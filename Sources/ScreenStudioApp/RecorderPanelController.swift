@@ -5,7 +5,7 @@ import RecorderCore
 import SwiftUI
 
 @MainActor
-final class DogSCApplicationDelegate: NSObject,
+final class ScreenStudioApplicationDelegate: NSObject,
     NSApplicationDelegate,
     NSMenuDelegate,
     NSMenuItemValidation {
@@ -789,7 +789,7 @@ final class RecorderPanelController: NSObject, NSWindowDelegate {
         // the phase transition settles, otherwise returning to the recorder
         // can lose the entire File menu and ⌘O stops working.
         DispatchQueue.main.async {
-            (NSApplication.shared.delegate as? DogSCApplicationDelegate)?
+            (NSApplication.shared.delegate as? ScreenStudioApplicationDelegate)?
                 .refreshMainMenuBindings()
         }
         guard let fallbackSize = RecorderPanelPolicy.contentSize(

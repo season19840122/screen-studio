@@ -286,7 +286,7 @@ struct RecorderSavePopover: View {
                     RecorderPopoverPresenter.shared.dismissAndPerform { WindowCoordinator.toggleRecorderMemo() }
                 }
                 rule
-                RecorderSaveActionRow(title: "退出DogSC", symbol: "power", showsChevron: false) {
+                RecorderSaveActionRow(title: "退出 Screen Studio", symbol: "power", showsChevron: false) {
                     RecorderPopoverPresenter.shared.dismissAndPerform { NSApplication.shared.terminate(nil) }
                 }
                 if let warning = model.captureReadiness.frameRateWarningText {

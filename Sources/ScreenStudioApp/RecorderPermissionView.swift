@@ -349,11 +349,11 @@ final class RequiredPermissionWindowController: NSObject, NSWindowDelegate {
     }
 
     /// Once System Settings accepts the dragged app, it may immediately show
-    /// an administrator-password sheet. Leaving DogSC's onboarding window at
+    /// an administrator-password sheet. Leaving Screen Studio's onboarding window at
     /// the front makes that secure field reject typing with the system alert
     /// sound. Put the onboarding window behind the active settings window and
     /// explicitly hand activation back to System Settings. The permission
-    /// poll keeps running, but only updates readiness. Returning to DogSC
+    /// poll keeps running, but only updates readiness. Returning to Screen Studio
     /// restores the next required step; Continue owns the workspace handoff.
     private func yieldToSystemSettingsAuthorization() {
         windowController.window?.orderBack(nil)

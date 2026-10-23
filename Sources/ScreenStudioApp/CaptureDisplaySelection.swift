@@ -87,7 +87,7 @@ final class CaptureDisplaySelector {
     private func makePointerScreenKey() {
         // A selector belongs over the currently visible desktop, including
         // another app's full-screen Space. Taking key input must not activate
-        // DogSC and move the user back to the editor's Space.
+        // Screen Studio and move the user back to the editor's Space.
         let pointer = NSEvent.mouseLocation
         (panels.first(where: { $0.frame.contains(pointer) }) ?? panels.first)?
             .makeKeyAndOrderFront(nil)

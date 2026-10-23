@@ -17,7 +17,7 @@ private final class EditorFirstMouseHostingView<Content: View>: NSHostingView<Co
 }
 
 @main
-enum DogSCApplication {
+enum ScreenStudioApplication {
     @MainActor
     static func main() {
         // Resolve the saved language before constructing any presentation.
@@ -25,27 +25,27 @@ enum DogSCApplication {
         // SceneBuilder cannot conditionally apply newer scene modifiers.
         // Choose the host before creating the one application delegate.
         if #available(macOS 15.0, *) {
-            DogSCModernApp.main()
+            ScreenStudioModernApp.main()
         } else {
-            DogSCApp.main()
+            ScreenStudioApp.main()
         }
     }
 }
 
-private struct DogSCApp: App {
-    @NSApplicationDelegateAdaptor(DogSCApplicationDelegate.self)
+private struct ScreenStudioApp: App {
+    @NSApplicationDelegateAdaptor(ScreenStudioApplicationDelegate.self)
     private var applicationDelegate
 
-    var body: some Scene { DogSCSettingsScene() }
+    var body: some Scene { ScreenStudioSettingsScene() }
 }
 
 @available(macOS 15.0, *)
-private struct DogSCModernApp: App {
-    @NSApplicationDelegateAdaptor(DogSCApplicationDelegate.self)
+private struct ScreenStudioModernApp: App {
+    @NSApplicationDelegateAdaptor(ScreenStudioApplicationDelegate.self)
     private var applicationDelegate
 
     var body: some Scene {
-        DogSCSettingsScene()
+        ScreenStudioSettingsScene()
             // AppKit owns launch and Dock reopening. Settings is never a
             // default or restored main window, even with old saved state.
             .defaultLaunchBehavior(.suppressed)
@@ -53,7 +53,7 @@ private struct DogSCModernApp: App {
     }
 }
 
-private struct DogSCSettingsScene: Scene {
+private struct ScreenStudioSettingsScene: Scene {
     @ObservedObject private var guideAccess = FirstLaunchGuideAccess.shared
 
     var body: some Scene {

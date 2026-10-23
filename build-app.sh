@@ -75,7 +75,7 @@ codesign --force --options runtime --preserve-metadata=entitlements --sign "$sig
 for component in "$framework_version/Autoupdate" "$framework_version/Updater.app" "$framework"; do
   codesign --force --options runtime --sign "$signing_identity" "$component"
 done
-codesign --force --options runtime --entitlements Resources/DogSC.entitlements \
+codesign --force --options runtime --entitlements Resources/ScreenStudio.entitlements \
   --sign "$signing_identity" "$app"
 codesign --verify --deep --strict "$app"
 

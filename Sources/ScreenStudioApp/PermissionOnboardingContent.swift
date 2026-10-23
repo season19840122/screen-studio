@@ -28,7 +28,7 @@ struct RequiredRecordingPermissionView: View {
                 Image(nsImage: NSApplication.shared.applicationIconImage)
                     .resizable().interpolation(.high)
                     .frame(width: PermissionOnboardingStyle.brandSize, height: PermissionOnboardingStyle.brandSize)
-                Text("DogSC").font(.appUI(size: 15, weight: .semibold))
+                Text("Screen Studio").font(.appUI(size: 15, weight: .semibold))
                     .foregroundStyle(RecorderStyle.ink)
             }
             .opacity(presentation.isIntroAnimating ? 0 : 1)
@@ -80,7 +80,7 @@ struct RequiredRecordingPermissionView: View {
                     else { model.finishRequiredPermissionOnboarding() }
                 } label: {
                     HStack(spacing: 8) {
-                        Text(isReview ? appLocalized("完成") : appLocalized("进入 DogSC"))
+                        Text(isReview ? appLocalized("完成") : appLocalized("进入 Screen Studio"))
                         Image(systemName: "arrow.right")
                     }
                     .font(.appUI(size: 13, weight: .semibold))
@@ -260,7 +260,7 @@ struct PermissionDragAssistantView: View {
                 .shadow(color: RecorderStyle.lift, radius: 6, y: 3)
                 .onHover { hovered = $0 }
             VStack(alignment: .leading, spacing: 7) {
-                Text("找不到 DogSC？").font(.appUI(size: 15, weight: .semibold))
+                Text("找不到 Screen Studio？").font(.appUI(size: 15, weight: .semibold))
                     .foregroundStyle(RecorderStyle.ink)
                 Text(String(format: appLocalized("把图标拖入“%@”列表，再打开开关。"), permission.settingsListName))
                     .font(.appUI(size: 13)).foregroundStyle(PermissionOnboardingStyle.muted)

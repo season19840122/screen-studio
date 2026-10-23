@@ -3,11 +3,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "DogSC",
+    name: "ScreenStudio",
     platforms: [.macOS(.v14)],
     products: [
         .library(name: "RecorderCore", targets: ["RecorderCore"]),
-        .executable(name: "DogSC", targets: ["DogSCApp"]),
+        .executable(name: "ScreenStudio", targets: ["ScreenStudioApp"]),
     ],
     dependencies: [
         .package(
@@ -21,12 +21,12 @@ let package = Package(
             path: "Sources/RecorderCore"
         ),
         .executableTarget(
-            name: "DogSCApp",
+            name: "ScreenStudioApp",
             dependencies: [
                 "RecorderCore",
                 .product(name: "Sparkle", package: "Sparkle"),
             ],
-            path: "Sources/DogSCApp",
+            path: "Sources/ScreenStudioApp",
             linkerSettings: [
                 .unsafeFlags([
                     "-Xlinker",
