@@ -4,7 +4,7 @@ import os
 import QuartzCore
 
 /// Explicit, bounded diagnostics. Release does nothing unless launched with
-/// DOGSC_PREVIEW_DIAGNOSTICS=1; no per-second production logs or frame images.
+/// SCREENSTUDIO_PREVIEW_DIAGNOSTICS=1; no per-second production logs or frame images.
 /// All shared state is lock-protected, and CI waits run on a utility collector,
 /// never the main actor or the serial composition/presentation queue.
 final class PreviewFrameDiagnostics: @unchecked Sendable {
@@ -56,7 +56,7 @@ final class PreviewFrameDiagnostics: @unchecked Sendable {
     private static let logger = Logger(subsystem: "cn.laogou.dogsc", category: "preview-diagnostics")
 
     static func configured() -> PreviewFrameDiagnostics? {
-        ProcessInfo.processInfo.environment["DOGSC_PREVIEW_DIAGNOSTICS"] == "1"
+        ProcessInfo.processInfo.environment["SCREENSTUDIO_PREVIEW_DIAGNOSTICS"] == "1"
             ? PreviewFrameDiagnostics() : nil
     }
 

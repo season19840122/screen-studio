@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="Resources/AppIconMaster.png" width="128" alt="DogSC">
+  <img src="Resources/AppIconMaster.png" width="128" alt="Screen Studio">
 </p>
 
-<h1 align="center">DogSC</h1>
+<h1 align="center">Screen Studio</h1>
 
 <p align="center">
   <b>录得清楚，剪得轻松，运镜自然。</b><br>
@@ -17,15 +17,15 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/laogou717/dogsc/releases/latest"><b>下载</b></a>
+  <a href="https://github.com/season19840122/screen-studio/releases/latest"><b>下载</b></a>
   &nbsp;·&nbsp;
   <a href="#从源码构建">从源码构建</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/laogou717/dogsc/issues">反馈问题</a>
+  <a href="https://github.com/season19840122/screen-studio/issues">反馈问题</a>
 </p>
 
 <p align="center">
-  <img src="docs/images/editor.png" alt="DogSC 编辑器：画面预览、背景设置与多轨时间线">
+  <img src="docs/images/editor.png" alt="Screen Studio 编辑器：画面预览、背景设置与多轨时间线">
 </p>
 
 ## 功能
@@ -64,7 +64,7 @@
 </table>
 
 <p align="center">
-  <img src="docs/images/motion.png" alt="DogSC 运镜：缩放焦点、曲线与时间线片段">
+  <img src="docs/images/motion.png" alt="Screen Studio 运镜：缩放焦点、曲线与时间线片段">
 </p>
 
 ## 小技巧
@@ -76,12 +76,12 @@
 
 ## 开始使用
 
-1. 从 [Releases](https://github.com/laogou717/dogsc/releases/latest) 下载 DMG，把 DogSC 拖入「应用程序」。
+1. 从 [Releases](https://github.com/season19840122/screen-studio/releases/latest) 下载 DMG，把 Screen Studio 拖入「应用程序」。
 2. 按引导开启屏幕录制与辅助功能权限，麦克风和摄像头按需授权。
 3. 界面语言在「设置 → 通用」中切换，即时生效。
 
 > [!NOTE]
-> 当前测试版使用 Apple Development 签名，尚未经过 Apple 公证。首次打开如被拦截，请在「系统设置 → 隐私与安全性」中点「仍要打开」（[Apple 说明](https://support.apple.com/zh-cn/102445)）。请只从本仓库的 Releases 下载。
+> 本项目的包使用 ad-hoc 签名，尚未经过 Apple 公证。首次打开如被拦截，请在「系统设置 → 隐私与安全性」中点「仍要打开」（[Apple 说明](https://support.apple.com/zh-cn/102445)），或在终端执行 `xattr -dr com.apple.quarantine "/Applications/Screen Studio.app"`。请只从本仓库的 Releases 下载。
 
 ## 从源码构建
 
@@ -91,21 +91,25 @@
 <br>
 
 ```bash
-git clone https://github.com/laogou717/dogsc.git
-cd dogsc
+git clone https://github.com/season19840122/screen-studio.git
+cd screen-studio
 
 # 找到自己证书的 40 位 SHA-1 指纹
 security find-identity -v -p codesigning
 
-DOGSC_SIGNING_IDENTITY="<SHA-1 指纹>" bash build-app.sh
-open ".build/local/DogSC Dev.app"
+SCREENSTUDIO_SIGNING_IDENTITY="<SHA-1 指纹>" bash build-app.sh
+open ".build/local/Screen Studio Dev.app"
 ```
 
 - 脚本完成 Release 编译，组装图标、字体、本地化与 Sparkle，并签名整个 App。单独 `swift build` 不会生成 `.app`。
-- 开发版 `DogSC Dev`（`cn.laogou.dogsc.dev`）与正式版的偏好和系统权限相互独立，也不接收正式版更新。
+- 开发版 `Screen Studio Dev`（`com.season.screenstudio.dev`）与正式版的偏好和系统权限相互独立，也不接收正式版更新。
 - Xcode 不在 `/Applications` 时，用 `DEVELOPER_DIR` 指定位置。首次构建需要联网下载 Sparkle。
 
 </details>
+
+## 致谢
+
+本项目基于 [laogou717/dogsc](https://github.com/laogou717/dogsc) 二次开发，遵循原项目的 MIT 许可。
 
 ## 许可
 

@@ -1,5 +1,5 @@
 name: 故障反馈
-description: 反馈 DogSC 使用过程中遇到的问题。
+description: 反馈 Screen Studio 使用过程中遇到的问题。
 body:
   - type: markdown
     attributes:

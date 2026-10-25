@@ -34,9 +34,9 @@ jobs:
       - name: Import signing identity
         id: sign
         env:
-          CERT_P12: ${{ secrets.DOGSC_SIGNING_CERTIFICATE_P12 }}
-          CERT_PASSWORD: ${{ secrets.DOGSC_SIGNING_CERTIFICATE_PASSWORD }}
-          CERT_IDENTITY: ${{ secrets.DOGSC_SIGNING_IDENTITY_SHA1 }}
+          CERT_P12: ${{ secrets.SCREENSTUDIO_SIGNING_CERTIFICATE_P12 }}
+          CERT_PASSWORD: ${{ secrets.SCREENSTUDIO_SIGNING_CERTIFICATE_PASSWORD }}
+          CERT_IDENTITY: ${{ secrets.SCREENSTUDIO_SIGNING_IDENTITY_SHA1 }}
         run: |
           set -euo pipefail
           # 未配置证书时退回 ad-hoc 签名：能构建能运行，但 cdhash 每次不同，
@@ -47,9 +47,9 @@ jobs:
             exit 0
           fi
 
-          keychain="$RUNNER_TEMP/dogsc-signing.keychain-db"
+          keychain="$RUNNER_TEMP/screenstudio-signing.keychain-db"
           keychain_password="$(uuidgen)$(uuidgen)"
-          certificate="$RUNNER_TEMP/dogsc-signing.p12"
+          certificate="$RUNNER_TEMP/screenstudio-signing.p12"
 
           printf '%s' "$CERT_P12" | base64 -D > "$certificate"
           security create-keychain -p "$keychain_password" "$keychain"
